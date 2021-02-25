@@ -24,9 +24,8 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    @JoinColumn(name = "booking_id")
-    @JsonIgnoreProperties({"customers"})
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnoreProperties({"customer"})
     private List<Booking> bookings;
 
 

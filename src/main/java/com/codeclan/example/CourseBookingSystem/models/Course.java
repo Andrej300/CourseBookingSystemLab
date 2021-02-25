@@ -24,9 +24,8 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    @JoinColumn(name="booking_id")
-    @JsonIgnoreProperties({"courses"})
+    @OneToMany(mappedBy = "course")
+    @JsonIgnoreProperties({"course"})
     private List<Booking> bookings;
 
 
@@ -82,5 +81,6 @@ public class Course {
 
     public void addBooking(Booking booking){
         this.bookings.add(booking);
+        booking.setCourse(this);
     }
 }
