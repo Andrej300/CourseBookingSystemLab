@@ -26,7 +26,7 @@ public class Course {
 
     @OneToMany
     @JoinColumn(name="booking_id")
-    @JsonIgnoreProperties("courses")
+    @JsonIgnoreProperties({"courses"})
     private List<Booking> bookings;
 
 
