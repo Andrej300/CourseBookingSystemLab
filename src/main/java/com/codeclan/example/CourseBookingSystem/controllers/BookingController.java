@@ -22,4 +22,5 @@ public class BookingController {
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
 
+
 }
