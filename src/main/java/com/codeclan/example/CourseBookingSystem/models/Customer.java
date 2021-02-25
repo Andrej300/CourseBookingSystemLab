@@ -1,17 +1,32 @@
 package com.codeclan.example.CourseBookingSystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.JoinColumnOrFormula;
+
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+
+@Table(name="customers")
 public class Customer {
 
+    @Column(name= "name")
     private String name;
 
+    @Column(name= "town")
     private String town;
 
+    @Column(name= "age")
     private int age;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany
+    @JoinColumn(name = "booking_id")
+    @JsonIgnoreProperties({"customers"})
     private List<Booking> bookings;
 
 
